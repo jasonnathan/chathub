@@ -1,4 +1,3 @@
-import { Sentry } from '~services/sentry'
 import { ChatError, ErrorCode } from '~utils/errors'
 import { streamAsyncIterable } from '~utils/stream-async-iterable'
 
@@ -37,14 +36,15 @@ export abstract class AbstractBot {
 
   protected async *doSendMessageGenerator(params: MessageParams) {
     const wrapError = (err: unknown) => {
-      Sentry.captureException(err)
-      if (err instanceof ChatError) {
-        return err
-      }
-      if (!params.signal?.aborted) {
-        // ignore user abort exception
-        return new ChatError((err as Error).message, ErrorCode.UNKOWN_ERROR)
-      }
+      console.error(err)
+      // Sentry.captureException(err)
+      // if (err instanceof ChatError) {
+      //   return err
+      // }
+      // if (!params.signal?.aborted) {
+      //   // ignore user abort exception
+      //   return new ChatError((err as Error).message, ErrorCode.UNKOWN_ERROR)
+      // }
     }
     const stream = new ReadableStream<AnwserPayload>({
       start: (controller) => {
@@ -60,14 +60,12 @@ export abstract class AbstractBot {
               controller.close()
             } else if (event.type === 'ERROR') {
               const error = wrapError(event.error)
-              if (error) {
-                controller.error(error)
-              }
+              controller.error(error)
             }
           },
         }).catch((err) => {
           const error = wrapError(err)
-          if (error) {
+          if (err) {
             controller.error(error)
           }
         })

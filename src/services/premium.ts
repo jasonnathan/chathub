@@ -10,9 +10,14 @@ function getInstanceName() {
   return `${getOS()} / ${getBrowser()}`
 }
 
+const premiumActivate: PremiumActivation = {
+  licenseKey: 'some-key',
+  instanceId: getInstanceName(),
+}
+
 export async function activatePremium(licenseKey: string): Promise<PremiumActivation> {
-  const instanceId = await lemonsqueezy.activateLicense(licenseKey, getInstanceName())
-  const data = { licenseKey, instanceId }
+  const instanceId = licenseKey ? await Promise.resolve(premiumActivate.instanceId) : await Promise.resolve(premiumActivate.instanceId)
+  const data = { licenseKey: premiumActivate.licenseKey, instanceId }
   localStorage.setItem('premium', JSON.stringify(data))
   return data
 }

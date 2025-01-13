@@ -20,10 +20,14 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         input: ['app.html'],
+        output: {
+          sourcemap: true,
+        }
       },
+      sourcemap: true
     },
     esbuild: {
-      drop: mode === 'production' ? ['console', 'debugger'] : [],
+     // drop: mode === 'production' ? ['console', 'debugger'] : [],
     },
     server: {
       strictPort: true,

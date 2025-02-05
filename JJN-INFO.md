@@ -1,68 +1,129 @@
-# JJN-INFO: CHATHUB
+# JJN-INFO: CHATHUB  
 
-## Overview
+## Purpose  
+ChatHub is basically the **Swiss Army knife of chatbot clients**, except instead of a corkscrew and a tiny saw, it comes loaded with **ChatGPT, Bing Chat, Bard, Claude, LLaMA, and a bunch of AI models I've never actually used**. Instead of flipping between a million different chatbot UIs like a fool, this **browser extension** lets me chat with **multiple AI models simultaneously** in one place.  
 
-ChatHub is an all-in-one chatbot client that integrates multiple chatbots into a single browser extension. It supports several popular bots such as ChatGPT, Bing Chat, Google Bard, Claude, and various open-source models like LLaMA 2 and Vicuna. The extension allows simultaneous conversations with multiple bots for comparison, local storage of chat history, Markdown export, and various customization options.
+Because why settle for **one hallucinating AI** when I can have **five hallucinating at the same time?**  
 
-## Features
+---
 
-- Use different chatbots in one app, including ChatGPT, Bing Chat, Google Bard, Claude, and open-source models.
-- Compare answers from multiple chatbots simultaneously.
-- Markdown and code highlight support for rendered chat output.
-- Conversation history is saved locally with options to export and import.
-- Built-in prompt library for quick and reusable prompts.
-- Customizable front-end features like themes and dark mode.
-- Support for GPT-4 Browsing, Claude API, and Azure OpenAI Service.
-- Extensions for browser integration and quick access.
+## Key Features (aka Why I Bothered Installing This)  
 
-## Supported Bots
+### 🔥 Multiple AI Models in One App  
+- Lets me talk to **ChatGPT, Bing Chat, Google Bard, Claude 2, LLaMA 2**, and various open-source models.  
+- **Side-by-side comparisons** so I can see which bot lies the best.  
 
-- ChatGPT (via Webapp/API/Azure/Poe)
-- Bing Chat
-- Google Bard
-- Claude 2 (via Webapp/API/Poe)
-- LLaMA 2
-- ChatGLM
-- Vicuna
-- iFlytek Spark
-- Tongyi Qianwen
-- Baichuan
-- WizardLM
-- Pi by Inflection
+### 📝 Markdown & Code Highlighting  
+- Markdown rendering means **no ugly formatting nightmares**.  
+- Code blocks actually **look like code** instead of a jumbled mess.  
 
-## File Structure
+### 📜 Local Conversation History  
+- Saves chat history **locally** (no cloud storage nonsense).  
+- I can **export/import** my chats because, apparently, I like hoarding AI conversations.  
 
-- **dist/**: Contains the built files for the browser extension, including the necessary assets and configuration files.
-- **mock_server/**: Includes API mock files for testing purposes.
-- **screenshots/**: Provides visual previews of the extension in light and dark modes.
-- **src/**: Contains the source code organized into modules such as:
-  - **app/**: Main application logic and UI components.
-  - **background/**: Background script logic.
-  - **content-script/**: Browser content script integration.
-  - **services/**: Services for bot communication and data handling.
-  - **utils/**: Utility functions and helpers.
-  - **rules/**: Logic for specific chatbot behaviors or integration.
+### ⚡ Prompt Library  
+- **Reusable prompts** because I’m tired of typing the same thing over and over again.  
+- Supports **GPT-4 Browsing, Claude API, and Azure OpenAI Service** for added flexibility.  
 
-## Custom Branch: `stashed`
+### 🌙 Customizable UI (Because Default Light Mode is a War Crime)  
+- Supports **themes and dark mode** so my eyes don’t burn.  
+- Extensions for **browser integration** and **quick access**.  
 
-The `stashed` branch includes custom modifications and experimental features tailored to my use cases. These may include UI changes, additional bot integrations, or alternative approaches to certain workflows. While functional, the branch might not adhere strictly to upstream conventions.
+---
 
-## Dependencies
+## Supported AI Models (Or, How Many Bots Can Annoy Me at Once?)  
 
-- Built with TypeScript and Vite.
-- Uses TailwindCSS for styling.
-- Relies on `yarn` for dependency management.
-- Key libraries include:
-  - `katex`: For rendering math formulas.
-  - `sse`: For server-sent events handling.
-  - `obsidian`: For Markdown-based front-end customization.
+- **ChatGPT** (Webapp/API/Azure/Poe)  
+- **Bing Chat**  
+- **Google Bard**  
+- **Claude 2** (Webapp/API/Poe)  
+- **LLaMA 2**  
+- **ChatGLM**  
+- **Vicuna**  
+- **iFlytek Spark**  
+- **Tongyi Qianwen**  
+- **Baichuan**  
+- **WizardLM**  
+- **Pi by Inflection**  
 
-## Notes on Installation
+I only know half of these, but I guess it’s nice to have options?  
 
-- **Manual Installation**:
-  1. Download the `chathub.zip` file from the [Releases page](https://github.com/chathub-dev/chathub/releases).
-  2. Extract the files and load the `dist` folder as an unpacked extension in the browser.
-- **Building from Source**:
-  1. Clone the repository and switch to the desired branch.
-  2. Run `corepack enable`, followed by `yarn install` and `yarn build`.
-  3. Load the `dist` folder as an unpacked extension.
+---
+
+## Project Structure (So I Remember Where Everything Lives)  
+
+```plaintext
+.
+├── dist/                # Compiled browser extension files  
+├── mock_server/         # Fake API responses for testing  
+├── screenshots/         # UI previews (for when I forget what it looks like)  
+├── src/                 # The actual source code  
+│   ├── app/             # Core UI components  
+│   ├── background/      # Background script logic  
+│   ├── content-script/  # Injects scripts into web pages  
+│   ├── services/        # Handles chatbot communication  
+│   ├── utils/           # Helper functions  
+│   ├── rules/           # Defines bot behaviors  
+└── package.json         # Dependencies and scripts  
+```
+
+---
+
+## Custom Branch: `stashed`  
+I have a custom **`stashed`** branch where I’ve been making **weird experimental modifications** that:  
+1. **Might break everything**  
+2. **Might make things awesome**  
+
+These mods include **UI tweaks, extra bot integrations, and general chaos**. No guarantees it won’t explode.  
+
+---
+
+## Dependencies  
+- **Built with:**  
+  - **TypeScript + Vite** (because React wasn’t bloated enough)  
+  - **TailwindCSS** (for stylish but lazy CSS)  
+- **Package Manager:**  
+  - Uses **`yarn`** instead of npm, because why make things easy?  
+- **Key Libraries:**  
+  - **`katex`** → Math formulas, for the three times I’ll use them.  
+  - **`sse`** → Handles live streaming responses.  
+  - **`obsidian`** → Because **Markdown rules my life now**.  
+
+---
+
+## Installation (aka How to Get This Working Without Crying)  
+
+### 🏗 Manual Installation  
+1. **Download** `chathub.zip` from [Releases](https://github.com/chathub-dev/chathub/releases).  
+2. **Extract it.**  
+3. **Load the `dist` folder** as an **unpacked extension** in Chrome or whatever browser I’m using this week.  
+
+### 🔨 Building from Source (When I Feel Like Overcomplicating My Life)  
+1. Clone the repo and switch to the right branch:  
+   ```bash
+   git clone https://github.com/chathub-dev/chathub.git
+   cd chathub
+   git checkout stashed  # Because of course I made my own branch  
+   ```
+2. Install dependencies:  
+   ```bash
+   corepack enable  
+   yarn install  
+   ```
+3. Build it:  
+   ```bash
+   yarn build  
+   ```
+4. Load the **`dist` folder** as an unpacked extension in the browser.  
+
+---
+
+## Final Thoughts (To Future Me, From Past Me)  
+
+- This thing is actually **useful as hell**. I don’t have to **switch between 50 chatbot UIs anymore**.  
+- If it **breaks**, I probably messed with something in `stashed`—check there first.  
+- Maybe **add voice input** later? Or don’t. I talk enough as it is.  
+- If I uninstall it, I’ll regret it in a week. **DON’T DELETE IT.**  
+
+💡 **Final Note:**  
+_"If you’re debugging this at 2 AM, maybe you should just sleep instead."_
